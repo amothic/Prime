@@ -13,6 +13,9 @@ public class Prime {
 	
 	public static void main(final String[] args) {
 		
+		// タイマー開始
+		long t1 = System.nanoTime();
+		
 		// 引数の受け取り
 		for (int i=0; i<args.length; i++) {
 			if ("-cpu".equals(args[i])) {
@@ -54,8 +57,11 @@ public class Prime {
         if (print_f) {
         	Collections.sort(totalPrimes);
         	for (Long prime : totalPrimes) {
-        		System.out.print(prime + "\n");
+        		System.out.print(prime + ", ");
         	}
         }
+        
+		long t2 = System.nanoTime();
+		System.out.print("\n\nExecution time: " + ((t2-t1)/1000) + " micro seccond.\n");
 	}
 }
